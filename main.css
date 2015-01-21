@@ -1,0 +1,32 @@
+body {
+	background-color: #f0f0f0;
+}
+
+h1 {
+	font-family: 'Lobster Two', cursive;
+	font-size: 50pt;
+	height: 100px;
+	width: 400px;
+	color: green;
+}
+
+#itemsRemaining {
+	font-family: 'Playfair Display', serif;
+	font-size: 24pt;
+}
+
+table {
+	font-family: 'Amatic SC', cursive;
+	font-size: 30pt;
+	padding: 10px;
+}
+th {
+	font-size: 30pt;
+	padding: 10px;
+}
+
+#textBox {
+	background-color: #f0f0f0;
+	color: green;
+	font-family: 'Playfair Display', serif;
+}

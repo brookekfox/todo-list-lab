@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Todo List</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+	<!-- <script type="text/javascript" src="script.js"></script> -->
+</head>
+<body>
+	<h1>My todo list</h1>
+	<div id="itemsRemaining"></div>
+	<input type="text" id="textBox" placeholder="Add a new item"/>
+	<input type="button" id="btn" value="ADD TO LIST"/>
+	<table id="tbl">
+		<th>Description</th>
+		<th>Completed</th>
+		<th>Remove</th>
+	</table>
+
+	<script type="text/javascript">
+		var numberOfItems = 0;
+		document.getElementById("itemsRemaining").innerHTML = "Items remaining: " + numberOfItems;
+
+		document.getElementById("btn").onclick = function(){
+			var todo = document.getElementById("textBox").value;
+			var myTR = document.createElement("tr");
+				document.getElementById("tbl").appendChild(myTR);
+				var myTD1 = myTR.appendChild(document.createElement("td"));
+				myTD1.innerHTML = todo;
+			var myTD2 = myTR.appendChild(document.createElement("td"));
+				var cb1 = myTD2.appendChild(document.createElement("input"));
+					cb1.type = "checkbox";
+					cb1.class = "completed";
+				var myTD3 = myTR.appendChild(document.createElement("td"));
+				var cb2 = myTD3.appendChild(document.createElement("input"));
+					cb2.type = "checkbox";
+					cb2.class = "remove";
+			numberOfItems += 1;
+			document.getElementById("itemsRemaining").innerHTML = "Items remaining: " + numberOfItems;
+
+			// console.log(document.getElementsByClassName("completed")[0]);
+			cb1.addEventListener("click", function(){
+				if(cb1.checked) {
+					numberOfItems -= 1;
+					document.getElementById("itemsRemaining").innerHTML = "Items remaining: " + numberOfItems;
+				} else {
+					numberOfItems += 1;
+					document.getElementById("itemsRemaining").innerHTML = "Items remaining: " + numberOfItems;
+				}
+			});
+
+			cb2.addEventListener("click", function () {
+				myTR.removeChild(myTD1);
+				myTD2.removeChild(cb1);
+				myTD3.removeChild(cb2);
+				numberOfItems -= 1;
+					document.getElementById("itemsRemaining").innerHTML = "Items remaining: " + numberOfItems;
+			});
+		};
+
+		// document.getElementsByClassName("remove")[0].onclick = function(){
+		// 	numberOfItems -= 1;
+		// 	document.getElementById("").remove;
+		// };
+	</script>
+</body>
+</html>
